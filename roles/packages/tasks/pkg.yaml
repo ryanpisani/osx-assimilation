@@ -1,0 +1,10 @@
+---
+- name: Download {{item.value.name}}
+  include_tasks: download.yaml
+  when: item.value.url is defined
+
+- name: PKG - installing {{item.value.name}} 
+  command: installer  -verbose -pkg "{{ dlpath }}/{{ item.key }}.{{ item.value.type }}" -target /
+  become: yes
+  become_method: sudo
+  become_user: root

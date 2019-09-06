@@ -1,0 +1,6 @@
+#The mountpath where dmgs will be attached
+mountpath: "{{playbook_dir}}/mounts"
+#The path where package downloads will be stored
+dlpath: "{{playbook_dir}}/downloads"
+#The path that harbors scripts to execute
+scriptpath: "{{playbook_dir}}/scripts"

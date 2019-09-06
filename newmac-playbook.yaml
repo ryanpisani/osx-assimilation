@@ -1,0 +1,10 @@
+---
+# DESC: Install packages and tweak settings on new macs
+# AUTHOR: ryanpisani https://github.com/ryanpisani/osx-assimilation
+
+- name: Setup New Mac
+  hosts: 127.0.0.1
+  connection: local
+
+  roles:
+    - packages

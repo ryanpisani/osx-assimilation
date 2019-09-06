@@ -1,0 +1,5 @@
+---
+- name: Downloading {{item.value.name}}
+  get_url: 
+    url: "{{ item.value.url }}" 
+    dest: "{{ dlpath }}/{{ item.key }}.{{ item.value.type }}"

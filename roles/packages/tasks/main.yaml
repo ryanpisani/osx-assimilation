@@ -1,0 +1,20 @@
+---
+- name: Include All Packages 
+  include_vars:
+    file: "{{playbook_dir}}/packages.yaml"
+    name: packages
+
+- name: Create Downloads Directory
+  file:
+    path: "{{ dlpath }}"
+    state: directory
+
+- name: Create Mounts Directory
+  file:
+    path: "{{ mountpath }}"
+    state: directory
+
+- name: Execute installs 
+  include_tasks: "{{item.value.type}}.yaml"
+  loop: "{{ packages|dict2items }}"
+

@@ -1,0 +1,24 @@
+---
+#Format for this file is as follows:
+#filename:  #This should be continous string filename, matching script, downloaded file, etc
+  #name: Friendly Description
+  #type: [script, dmg, zip, pkg, brew]
+  #url: [url link] - optional only if need to download, otherwise just place packages in ./downloads
+  #shell: [script interpreter] - optional only if executing a script
+bashtest.sh:
+  name: Run Bash commands
+  type: script
+  shell: /bin/bash
+phptest.php:
+  name: Run PHP commands
+  type: script
+  shell: /usr/bin/php
+chrome:
+  name: Google Chrome
+  url: https://dl.google.com/chrome/mac/stable/CHFA/googlechrome.dmg
+  type: dmg
+wget:
+  name: wget
+  type: brew
+
+

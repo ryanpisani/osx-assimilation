@@ -1,0 +1,49 @@
+---
+- name: Download {{item.value.name}}
+  include_tasks: download.yaml
+  when: item.value.url is defined
+
+- name: Mount DMG File
+  command: hdiutil attach {{ dlpath }}/{{ item.key }}.{{ item.value.type }} -nobrowse -mountpoint {{ mountpath }}/{{ item.key }}
+
+- name: Search for PKG Installer Type
+  find:
+    paths: "{{mountpath}}/{{item.key}}"
+    patterns: '*.pkg'
+  register: pkg
+
+- name: PKG - installing {{item.value.name}} 
+  command: installer  -verbose -pkg "{{pkgpath.path}}" -target /
+  become: yes
+  become_method: sudo
+  become_user: root
+  loop: "{{pkg.files}}" 
+  loop_control:
+    loop_var: pkgpath
+  when: pkg is succeeded
+  register: success
+
+- name: Search for APP Installer Type
+  find:
+    paths: "{{mountpath}}/{{item.key}}"
+    patterns: '*.app'
+    file_type: directory
+  register: app
+
+- name: APP - installing {{item.value.name}} 
+  synchronize: 
+    src: "{{app_path.path}}"
+    dest: /Applications/
+  become: yes
+  become_method: sudo
+  become_user: root
+  loop: "{{app.files}}" 
+  loop_control:
+    loop_var: app_path
+  when: app is succeeded
+  register: appsuccess
+
+- name: Unmount DMG File
+  command: hdiutil detach {{mountpath}}/{{item.key}}
+  when: success or appsuccess is succeeded
+

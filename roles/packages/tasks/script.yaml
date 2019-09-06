@@ -1,0 +1,3 @@
+---
+- name: Shell - executing {{item.value.name}} 
+  command: "{{item.value.shell}} \"{{scriptpath}}/{{item.key}}\""

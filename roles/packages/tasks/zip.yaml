@@ -1,0 +1,12 @@
+---
+- name: Download {{item.value.name}}
+  include_tasks: "download.yaml"
+  when: item.value.url is defined
+
+- name: ZIP - installing {{item.value.name}} 
+  unarchive:
+    src:  "{{ dlpath }}/{{ item.key }}.{{ item.value.type }}"
+    dest: /Applications/
+  become: yes
+  become_method: sudo
+  become_user: root
