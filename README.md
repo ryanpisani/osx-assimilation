@@ -6,7 +6,7 @@ Edit the packages.yaml file in the root directory to include packages to install
 
 # Installing dependencies
 Xcode, brew, and ansible are required
-Execute ./bootstrap.sh to install dependencies - follow any prompts
+Execute ./bootstrap.sh to install dependencies - follow any prompts accordingly
 
 # Run the playbook
 To run the playbook simply execute ansible-playbook newmac-playbook.yaml

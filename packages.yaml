@@ -5,6 +5,9 @@
   #type: [script, dmg, zip, pkg, brew]
   #url: [url link] - optional only if need to download, otherwise just place packages in ./downloads
   #shell: [script interpreter] - optional only if executing a script
+#If you have a dmg that doesn't need installing. Just copy the file to ./downloads and name it accodingly.
+#filename does not need an extension if it's anything other than a script.. [i.e mypackage vs mypackage.dmg] as long 
+#as type is set
 bashtest.sh:
   name: Run Bash commands
   type: script
