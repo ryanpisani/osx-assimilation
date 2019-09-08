@@ -12,4 +12,4 @@ sleep 2
 brew install ansible
 if [[ $? -eq 0 ]]; then 
   echo -e "\nYou may now execute \"ansible-playbook newmac.yaml\"\n"
-f
+fi
