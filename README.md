@@ -15,7 +15,9 @@ To run the playbook simply execute ansible-playbook newmac-playbook.yaml
 # packages.yaml format
 
 software: <-- This is the package name, brew name, cask name, or simple name that will be used to download the target software.
+
   name: My Software 1.0 <-- This is the friendly name that ansible will display as installing / running the task
+  
   type: [dmg,brew,cask,script,pkg,zip] <-- This is the method/task that will be used to install the requested software.
   url: https://software.mysoftware/mysoftware.dmg <-- OPTIONAL: Only required if you want the tool to download a pkg, zip, or dmg from somewhere.
   script: /bin/bash <-- The interpreter that will be used for "script" method executions. 
