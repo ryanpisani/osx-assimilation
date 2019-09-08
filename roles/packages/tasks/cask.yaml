@@ -1,0 +1,5 @@
+---
+- name: CASK - installing {{item.value.name}} 
+  homebrew_cask:
+    name: "{{ item.key }}"
+    state: present

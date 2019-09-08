@@ -1,5 +1,5 @@
 ---
 - name: BREW - installing {{item.value.name}} 
   homebrew:
-    name: "{{ item.value.name }}"
+    name: "{{ item.key }}"
     state: present
