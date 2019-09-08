@@ -1,18 +1,19 @@
-## osx-assimilation
+# osx-assimilation
 This is a simple Ansible tool to facilitate automated software installations on Mac OS X. It supports installing dmgs, pkgs, zips, brews, and executing customized shell scripts. It's used for setting up a fresh MAC machine in an automated, repeatable manner.
 
-# Getting Started
+## Getting Started
 Edit the packages.yaml file in the root directory to include packages to install. There are some examples for reference already there. 
 
-# Installing dependencies
+## Installing dependencies
 Xcode, brew, and ansible are required
+
 Execute ./bootstrap.sh to install dependencies - follow any prompts accordingly
 
-# Run the playbook
+## Run the playbook
 To run the playbook simply execute ansible-playbook newmac-playbook.yaml
 
 -------------------------------------------------------------------------
-# packages.yaml format
+## packages.yaml format
 ```
 software: <-- This is the package name, brew name, cask name, or simple name that will be used to download the target software.
   name: My Software 1.0 <-- This is the friendly name that ansible will display as installing / running the task
@@ -21,7 +22,7 @@ software: <-- This is the package name, brew name, cask name, or simple name tha
   script: /bin/bash <-- The interpreter that will be used for "script" method executions. 
 ```
 
-# Notes 
+## Notes 
 ```
 Pre-downloaded packages
  - Any pre-downloaded software should be placed in ./downloads (or defined dlpath in group-vars) and the name of the file should match the "software" tag above. For example software.dmg not "MY Software 1.0.dmg".
